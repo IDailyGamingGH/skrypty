@@ -1,0 +1,40 @@
+#IDGpandora#
+#Autor: IDailyGaming#
+#Wersja: 0.1 ALPHA#
+#Może źle działać!#
+
+on mine a stone:
+        chance of 5%:
+                drop a dragon egg with name "&cPUSZKA PANDORY" with lore "&aWypada z niej rozne cenne pdzemioty.||&cUWAGA! &eIstnieje szansa, ze z puszki||&ewyskocza bardzo silne potowry zamiast itemkow!"
+                send "&cZdobyles puszke pandory!"
+                broadcast "&8[&e&lID&a&lG&7&lpandora&8] &eGracz &7%player% &8zdobyl puszke pandory"
+on place a dragon egg:
+        lore of player's tool contains "&aWypada z niej rozne cenne pdzemioty.||&cUWAGA! &eIstnieje szansa, ze z puszki||&ewyskocza bardzo silne potowry zamiast itemkow!":
+                set block to air
+                remove dragon egg from player
+                set {IDGpandora.%player%} to a random integer between 0 and 2
+                if {IDGpandora.%player%} is 1:
+                        open chest with 1 row named "       &cI&eD&aG&bpandora" to player
+                        wait 2 ticks
+                        format slot 0 of player with black glass named " " to be unstealable
+                        loop 9 times:
+                                add 1 to {_gIDGpandora}
+                                format slot {_gIDGpandora} of player with black glass named " " to be unstealable
+                        format slot 4 of player with diamond sword of sharpness 4, fire aspect 2 named "&bWygrana" to close
+                        add 1 Diamond Sword of sharpness 4 ,fire aspect 2 named "&4Item-Losowanie" to player
+                        broadcast "&8[&e&lID&a&lG&7&lpandora&8] &8Gracz &7%player% &6otworzyl puszke pandory i wylosowal: &3Miecz Diamentowy &94&8/&92&c!"
+                        send "&8[&e&lID&a&lG&7&lpandora&8] &aGratulujemy! &eWygrany przedmiot masz juz w ekwipunku."
+						
+						
+command /pandora:
+	trigger:
+		open chest with 1 row named "&a&lDrop z pandory!" to player
+		format slot 0 of player with black glass named "" to be unstealable
+		format slot 1 of player with black glass named "" to be unstealable 
+		format slot 2 of player with black glass named "" to be unstealable 
+		format slot 3 of player with black glass named "" to be unstealable 
+		format slot 4 of player with diamond sword of sharpness 4, fire aspect 2 named "&bWygrana" to close
+		format slot 5 of player with black glass named "" to be unstealable 
+		format slot 6 of player with black glass named "" to be unstealable 
+		format slot 7 of player with black glass named "" to be unstealable 
+		format slot 8 of player with black glass named "" to be unstealable
