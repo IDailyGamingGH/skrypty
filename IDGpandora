@@ -28,7 +28,7 @@ on place a dragon egg:
 						
 command /pandora:
 	trigger:
-		open chest with 1 row named "&a&lDrop z pandory!" to player
+		open chest with 1 row named "&a&lDrop Z Pandory!" to player
 		format slot 0 of player with black glass named "" to be unstealable
 		format slot 1 of player with black glass named "" to be unstealable 
 		format slot 2 of player with black glass named "" to be unstealable 
