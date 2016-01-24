@@ -1,0 +1,31 @@
+command /chat [<text="brak">]:
+	trigger:
+		if player has permission "idgchat.command":
+			if arg 1 is not "on" or "off" or "clear":
+				send "          &6POMOC CHAT"
+				send "&6» &7/chat &fon &8- &aWlaczanie chatu."
+				send "&6» &7/chat &foff &8- &aWylaczanie chatu."
+				send "&6» &7/chat &fclear &8- &aCzyszczenie chatu."
+			if arg 1 is "on":
+				if {IDGchat} is false:
+					set {IDGchat} to true
+					broadcast "&c[IDGchat] &6» &7Chat zostal: &aWLACZONY"
+				else:
+					send "&c[IDGchat] &6» &7Chat jest juz: &aWLACZONY"
+			if arg 1 is "off":
+				if {IDGchat} is true:
+					set {IDGchat} to false
+					broadcast "&c[IDGchat] &6» &7Chat zostal: &cWYLACZONY"
+				else:
+					send "&c[IDGchat] &6» &7Chat jest juz: &cWYLACZONY"
+			if arg 1 is "clear":
+				loop 100 times:
+					send "" to all players
+				broadcast "&c[IDGchat] &6» &7Chat zostal: &6WYCZYSZCZONY"
+		else:
+			send "&c[IDGchat] &6» &cNie masz uprawnien! &8(idgchat.command)"
+on chat:
+	if {IDGchat} is false:
+		if player doesn't have permission "idgchat.write":
+			cancel event
+			send "&c[IDGchat] &6» &7Chat jest: &cWYLACZONY"
